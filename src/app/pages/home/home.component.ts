@@ -6,43 +6,54 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  timer = 25;
-  minutes = 25;
-  seconds = 0;
+  timer: number = 25;
+  minutes: number = 25;
+  seconds: any = '00';
 
-  timerStarted = false;
+  timerStarted: boolean = false;
 
   interval: any;
 
   increaseTimer() {
-    this.timer++;
+    this.minutes++;
   }
 
   decreaseTimer() {
-    this.timer--;
+    if (this.minutes > 0) {
+      this.minutes--;
+    }
   }
 
   resetTimer() {
-    this.timerStarted = false;
-    this.timer = 25;
+    this.stopTimer();
+    this.minutes = 25;
+    this.seconds = '00';
   }
 
   startTimer() {
     this.timerStarted = true;
 
-    this.interval = setInterval(() => counter(), 10);
+    this.interval = setInterval(() => counter(), 1000);
 
     const counter = () => {
-      // console.log(this.timer);
-      if (this.seconds === 0) {
+      if (this.seconds == 0) {
         this.minutes--;
         this.seconds = 60;
       }
       this.seconds--;
+      if (this.seconds <= 9 && this.seconds > 0) {
+        this.seconds = '0' + this.seconds;
+        console.log(this.seconds);
+      }
     };
 
     if (this.minutes === 0 && this.seconds === 0) {
       return;
     }
+  }
+
+  stopTimer() {
+    clearInterval(this.interval);
+    this.timerStarted = false;
   }
 }

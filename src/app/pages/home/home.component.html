@@ -1,11 +1,15 @@
 <div class="card">
-    <div>
-        <button (click)="decreaseTimer()">-</button>
+    <div class="timer">
         <span>{{minutes}}:{{seconds}}</span>
-        <button (click)="increaseTimer()">+</button>
     </div>
-    <div>
-        <button *ngIf="!timerStarted" (click)="startTimer()">Start focus</button>
-        <button (click)="resetTimer()">Reset</button>
+    <div class="timeControlls">
+        <button *ngIf="!timerStarted" (click)="decreaseTimer()" class="btn">-</button>
+        <button *ngIf="!timerStarted" (click)="increaseTimer()" class="btn">+</button>
+    </div>
+    <div class="timerControlls">
+        <button *ngIf="!timerStarted" (click)="startTimer()" class="btn">Start focus</button>
+        <button *ngIf="timerStarted" (click)="stopTimer()" class="btn">Pause</button>
+        <button (click)="resetTimer()" class="btn">Reset</button>
     </div>
 </div>
+<div class="circle"></div>

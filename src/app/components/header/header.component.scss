@@ -1,0 +1,17 @@
+header {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 50px;
+  border: 1px solid black;
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+}
+header h2 {
+  display: inline;
+}
+
+.tomato {
+  width: 50px;
+}
