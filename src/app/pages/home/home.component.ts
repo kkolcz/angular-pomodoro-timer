@@ -26,14 +26,14 @@ export class HomeComponent {
 
   resetTimer() {
     this.stopTimer();
-    this.minutes = 25;
+    this.minutes = 1;
     this.seconds = '00';
   }
 
   startTimer() {
     this.timerStarted = true;
 
-    this.interval = setInterval(() => counter(), 1000);
+    this.interval = setInterval(() => counter(), 100);
 
     const counter = () => {
       if (this.seconds == 0) {
@@ -45,11 +45,11 @@ export class HomeComponent {
         this.seconds = '0' + this.seconds;
         console.log(this.seconds);
       }
-    };
 
-    if (this.minutes === 0 && this.seconds === 0) {
-      return;
-    }
+      if (this.minutes === 0 && this.seconds === 0) {
+        this.stopTimer();
+      }
+    };
   }
 
   stopTimer() {
