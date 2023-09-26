@@ -26,28 +26,28 @@ export class HomeComponent {
 
   interval: any;
 
-  increaseTimer() {
+  increaseTimer(): void {
     this.minutes++;
   }
 
-  decreaseTimer() {
+  decreaseTimer(): void {
     if (this.minutes > 0) {
       this.minutes--;
     }
   }
 
-  resetTimer() {
+  resetTimer(): void {
     this.stopTimer();
     this.minutes = this.DEFAULT_TIMER;
     this.seconds = '00';
   }
 
-  startTimer() {
+  startTimer(): void {
     this.timerStarted = true;
 
     this.interval = setInterval(() => counter(), 100);
 
-    const counter = () => {
+    const counter = (): void => {
       if (this.seconds == 0) {
         this.minutes--;
         this.seconds = 60;
@@ -65,11 +65,11 @@ export class HomeComponent {
     };
   }
 
-  startBreak() {
+  startBreak(): void {
     this.timerStarted = true;
   }
 
-  stopTimer() {
+  stopTimer(): void {
     clearInterval(this.interval);
     this.timerStarted = false;
   }
@@ -83,7 +83,7 @@ export class HomeComponent {
     }
   }
 
-  skipTimer() {
+  skipTimer(): void {
     if (this.timeToBreak === false) {
       this.manageBlocks(true);
     }
