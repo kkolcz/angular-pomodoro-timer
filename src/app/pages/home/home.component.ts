@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 
+interface BlocksType {
+  number: number;
+  skip: boolean;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  timer: number = 25;
+  //DEFAULT
+  DEFAULT_TIMER: number = 25;
+  DEFAULT_BREAK: number = 5;
+  // -----
+
+  block: number = 0;
+  blocks: BlocksType[] = [];
   minutes: number = 25;
   seconds: any = '00';
 
   timerStarted: boolean = false;
+  timeToBreak: boolean = false;
 
   interval: any;
 
@@ -26,7 +38,7 @@ export class HomeComponent {
 
   resetTimer() {
     this.stopTimer();
-    this.minutes = 1;
+    this.minutes = this.DEFAULT_TIMER;
     this.seconds = '00';
   }
 
@@ -48,12 +60,41 @@ export class HomeComponent {
 
       if (this.minutes === 0 && this.seconds === 0) {
         this.stopTimer();
+        this.manageBlocks(false);
       }
     };
+  }
+
+  startBreak() {
+    this.timerStarted = true;
   }
 
   stopTimer() {
     clearInterval(this.interval);
     this.timerStarted = false;
+  }
+
+  manageBlocks(skip: boolean): void {
+    this.block++;
+    if (skip) {
+      this.blocks.push({ number: this.block, skip: true });
+    } else {
+      this.blocks.push({ number: this.block, skip: false });
+    }
+  }
+
+  skipTimer() {
+    if (this.timeToBreak === false) {
+      this.manageBlocks(true);
+    }
+    this.stopTimer();
+    this.timeToBreak = !this.timeToBreak;
+
+    if (this.timeToBreak === true) {
+      this.minutes = this.DEFAULT_BREAK;
+    } else {
+      this.minutes = this.DEFAULT_TIMER;
+    }
+    this.seconds = '00';
   }
 }

@@ -7,9 +7,13 @@
         <button *ngIf="!timerStarted" (click)="increaseTimer()" class="btn">+</button>
     </div>
     <div class="timerControlls">
-        <button *ngIf="!timerStarted" (click)="startTimer()" class="btn">Start focus</button>
-        <button *ngIf="timerStarted" (click)="stopTimer()" class="btn">Pause</button>
+        <button *ngIf="!timerStarted" (click)="startTimer()" class="btn">Start {{!timeToBreak ? 'focus' :
+            'break'}}</button>
+        <button *ngIf="timerStarted" (click)="skipTimer()" class="btn">Skip {{timeToBreak ? '' : 'to break'}}</button>
         <button (click)="resetTimer()" class="btn">Reset</button>
     </div>
 </div>
+<ul *ngIf="blocks.length">
+    <li *ngFor="let item of blocks">Block: {{item.number}} Skip: {{item.skip}}</li>
+</ul>
 <div class="circle"></div>
