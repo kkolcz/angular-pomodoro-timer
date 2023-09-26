@@ -16,9 +16,19 @@
   min-height: 400px;
   border: 2px solid tomato;
   aspect-ratio: 1/1;
-  background: $background-color;
+  // background: $background-color;
   animation: load 1s ease-in-out;
   margin-top: 5rem;
+  transition: all 1s;
+}
+
+.card.running {
+  background: #c73f3f;
+  // transition: all 1s;
+}
+
+.card.break {
+  background: #44c73f;
 }
 
 .timer {

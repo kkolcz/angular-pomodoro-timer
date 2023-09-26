@@ -1,4 +1,5 @@
-<div class="card">
+<!-- <div class="card" [ngStyle]="{'background': timerStarted === true ? 'rgb(255, 99, 71)' : 'rgb(155, 99, 71)'}"> -->
+<div class="card" [ngClass]="timerStarted === true ? 'running' : 'break'">
     <div class="timer">
         <span>{{minutes}}:{{seconds}}</span>
     </div>

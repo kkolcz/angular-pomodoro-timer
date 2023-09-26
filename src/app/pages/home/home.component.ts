@@ -40,6 +40,8 @@ export class HomeComponent {
     this.stopTimer();
     this.minutes = this.DEFAULT_TIMER;
     this.seconds = '00';
+    this.block = 0;
+    this.blocks = [];
   }
 
   startTimer(): void {
