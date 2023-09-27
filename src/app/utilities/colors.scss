@@ -1,11 +1,27 @@
-$primary-color: rgba(0, 119, 255, 0.5);
-$secondary-color: rgba(77, 160, 255, 0.5);
+// $primary-color: rgba(0, 119, 255, 0.5);
+// $secondary-color: rgba(77, 160, 255, 0.5);
+// $secondary-color: rgba(77, 160, 255, 0.5);
+// $additional-color: tomato;
+
+//FONT
+$primary-font: #15084d;
+$secondary-font: #281678;
 
 // BUTTONS
-$button-color: rgb(255, 99, 71);
-$button-hover-color: tomato;
-$button-border: #AA6347;
+// $button-color: rgba(46, 118, 255, 0.6);
+$button-color: transparent;
+$button-hover-color: rgba(46, 118, 255, 0.3);
+$button-border: rgba(41, 88, 179, 0.4);
 
-$primary-border: rgba(0, 80, 210, 0.7);
+//POMIDOR
+$tomato-background-running: rgba(200, 60, 60, 0.8);
+$tomato-background-break: rgba(200, 60, 60, 0.4);
 
-$background-color: linear-gradient(to left, $primary-color, $secondary-color);
+$background-color: linear-gradient(
+  to left,
+  rgba(0, 119, 255, 0.5),
+  rgba(77, 160, 255, 0.5)
+);
+
+//HEADER
+$header-background: tomato;

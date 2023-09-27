@@ -1,12 +1,15 @@
+@import "../../utilities/colors";
+
 header {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 50px;
   // border: 1px solid black;
-  background-color: tomato;
+  background-color: $header-background;
   display: flex;
   align-items: center;
+  color: $primary-font;
 }
 header h2 {
   display: inline;
