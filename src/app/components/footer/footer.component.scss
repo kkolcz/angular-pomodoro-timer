@@ -1,11 +1,13 @@
+@import "../../utilities/colors";
+
 footer {
   width: 100vw;
-  background-color: gainsboro;
+  background-color: $footer-background;
 }
 
 footer p {
   text-align: center;
-  color: grey;
+  color: $primary-font;
   margin: 0;
   padding: 0;
 }
