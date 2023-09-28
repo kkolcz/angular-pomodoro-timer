@@ -52,7 +52,7 @@ export class HomeComponent {
   startTimer(): void {
     this.timerStarted = true;
 
-    this.interval = setInterval(() => counter(), 1000);
+    this.interval = setInterval(() => counter(), 100);
 
     const counter = (): void => {
       if (this.seconds == 0) {
@@ -68,8 +68,9 @@ export class HomeComponent {
         console.log(this.seconds);
       }
 
-      if (this.minutes === 0 && this.seconds === 0) {
+      if (this.minutes == 0 && this.seconds == 0) {
         this.stopTimer();
+        this.playRinging();
         this.manageBlocks(false);
       }
 
@@ -113,5 +114,12 @@ export class HomeComponent {
 
   updateTitle(): void {
     this.titleService.setTitle(`${this.minutes}:${this.seconds}`);
+  }
+
+  playRinging(): void {
+    let audio = new Audio();
+    audio.src = '../../assets/ringing2.mp3';
+    audio.load();
+    audio.play();
   }
 }
