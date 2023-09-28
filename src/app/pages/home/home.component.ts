@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 interface BlocksType {
   number: number;
@@ -18,13 +19,17 @@ export class HomeComponent {
 
   block: number = 0;
   blocks: BlocksType[] = [];
-  minutes: number = 25;
+  minutes: any = 25;
   seconds: any = '00';
 
   timerStarted: boolean = false;
   timeToBreak: boolean = false;
 
   interval: any;
+
+  constructor(private titleService: Title) {
+    // titleService.setTitle('Pomidoro');
+  }
 
   increaseTimer(): void {
     this.minutes++;
@@ -47,11 +52,14 @@ export class HomeComponent {
   startTimer(): void {
     this.timerStarted = true;
 
-    this.interval = setInterval(() => counter(), 100);
+    this.interval = setInterval(() => counter(), 1000);
 
     const counter = (): void => {
       if (this.seconds == 0) {
         this.minutes--;
+        if (this.minutes <= 9) {
+          this.minutes = '0' + this.minutes;
+        }
         this.seconds = 60;
       }
       this.seconds--;
@@ -64,6 +72,8 @@ export class HomeComponent {
         this.stopTimer();
         this.manageBlocks(false);
       }
+
+      this.updateTitle();
     };
   }
 
@@ -98,5 +108,10 @@ export class HomeComponent {
       this.minutes = this.DEFAULT_TIMER;
     }
     this.seconds = '00';
+    this.updateTitle();
+  }
+
+  updateTitle(): void {
+    this.titleService.setTitle(`${this.minutes}:${this.seconds}`);
   }
 }
