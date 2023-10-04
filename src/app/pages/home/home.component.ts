@@ -52,7 +52,7 @@ export class HomeComponent {
   startTimer(): void {
     this.timerStarted = true;
 
-    this.interval = setInterval(() => counter(), 100);
+    this.interval = setInterval(() => counter(), 1000);
 
     const counter = (): void => {
       if (this.seconds == 0) {
@@ -98,7 +98,7 @@ export class HomeComponent {
 
   skipTimer(): void {
     if (this.timeToBreak === false) {
-      this.manageBlocks(true);
+      // this.manageBlocks(true);
     }
     this.stopTimer();
     this.timeToBreak = !this.timeToBreak;
