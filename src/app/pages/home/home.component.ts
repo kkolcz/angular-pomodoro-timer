@@ -15,9 +15,10 @@ export class HomeComponent {
   //DEFAULT
   DEFAULT_TIMER: number = 25;
   DEFAULT_BREAK: number = 5;
+  DEFAULT_LONG_BREAK: number = 20;
   // -----
 
-  block: number = 0;
+  block: number = 1;
   blocks: BlocksType[] = [];
   minutes: any = 25;
   seconds: any = '00';
@@ -45,7 +46,7 @@ export class HomeComponent {
     this.stopTimer();
     this.minutes = this.DEFAULT_TIMER;
     this.seconds = '00';
-    this.block = 0;
+    this.block = 1;
     this.blocks = [];
   }
 
@@ -88,7 +89,7 @@ export class HomeComponent {
   }
 
   manageBlocks(skip: boolean): void {
-    this.block++;
+    // this.block++;
     if (skip) {
       this.blocks.push({ number: this.block, skip: true });
     } else {
@@ -97,15 +98,25 @@ export class HomeComponent {
   }
 
   skipTimer(): void {
+    // console.log(this.block % 4);
     if (this.timeToBreak === false) {
-      // this.manageBlocks(true);
+      this.manageBlocks(true);
     }
     this.stopTimer();
     this.timeToBreak = !this.timeToBreak;
 
     if (this.timeToBreak === true) {
       this.minutes = this.DEFAULT_BREAK;
-    } else {
+    }
+
+    if (this.timeToBreak === true && this.block % 4 === 0) {
+      // console.log('long przerwa');
+      // this.block++;
+      this.minutes = this.DEFAULT_LONG_BREAK;
+    }
+
+    if (this.timeToBreak === false) {
+      this.block++;
       this.minutes = this.DEFAULT_TIMER;
     }
     this.seconds = '00';

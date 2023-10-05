@@ -1,6 +1,7 @@
 <!-- <div class="card" [ngStyle]="{'background': timerStarted === true ? 'rgb(255, 99, 71)' : 'rgb(155, 99, 71)'}"> -->
+<!-- <div class="app-container"> -->
 <div class="card" [ngClass]="timerStarted === true ? 'running' : 'break'">
-    <span class="mode">{{timeToBreak ? 'Time to break' : 'Time to focus'}}</span>
+    <span class="mode">{{timeToBreak ? 'Time to break' : 'Time to focus'}} #{{block}}</span>
     <div class="timer">
         <span>{{minutes}}:{{seconds}}</span>
     </div>
@@ -11,11 +12,13 @@
     <div class="timerControlls">
         <button *ngIf="!timerStarted" (click)="startTimer()" class="btn">Start {{!timeToBreak ? 'focus' :
             'break'}}</button>
-        <button *ngIf="timerStarted" (click)="skipTimer()" class="btn">Skip {{timeToBreak ? '' : 'to break'}}</button>
+        <button *ngIf="timerStarted" (click)="skipTimer()" class="btn">Skip {{timeToBreak ? '' : 'to
+            break'}}</button>
         <button (click)="resetTimer()" class="btn">Reset</button>
     </div>
 </div>
-<ul *ngIf="blocks.length">
-    <li *ngFor="let item of blocks">Block: {{item.number}} Skip: {{item.skip}}</li>
-</ul>
-<div class="circle"></div>
+<!-- *ngIf="blocks.length" -->
+<!-- <ul class="blocks"> -->
+<!-- <li *ngFor="let item of blocks">Block: {{item.number}} Skip: {{item.skip}}</li> -->
+<!-- </ul> -->
+<!-- </div> -->
