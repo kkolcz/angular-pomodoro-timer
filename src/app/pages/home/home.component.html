@@ -3,7 +3,7 @@
 <div class="card" [ngClass]="timerStarted === true ? 'running' : 'break'">
     <span class="mode">{{timeToBreak ? 'Time to break' : 'Time to focus'}} #{{counter}}</span>
     <div class="timer">
-        <span>{{minutes}}:{{seconds}}</span>
+        <span>{{show_min}}:{{show_sec}}</span>
     </div>
     <div class="timeControlls">
         <button *ngIf="!timerStarted" (click)="decreaseTimer()" class="btn">-</button>

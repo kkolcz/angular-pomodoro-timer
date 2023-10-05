@@ -20,7 +20,7 @@
   aspect-ratio: 1/1;
   // background: $background-color;
   animation: load 1s ease-in-out;
-  // margin-top: 1rem;
+  margin: 1rem;
   transition: all 1s;
 }
 
@@ -88,44 +88,44 @@
 }
 
 // Basic Button Style
-.buttn {
-  box-sizing: border-box;
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid red;
-  border-radius: 0.6em;
-  color: red;
-  cursor: pointer;
-  display: flex;
-  align-self: center;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 20px;
-  padding: 1.2em 2.8em;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
+// .buttn {
+//   box-sizing: border-box;
+//   appearance: none;
+//   background-color: transparent;
+//   border: 2px solid red;
+//   border-radius: 0.6em;
+//   color: red;
+//   cursor: pointer;
+//   display: flex;
+//   align-self: center;
+//   font-size: 1rem;
+//   font-weight: 400;
+//   line-height: 1;
+//   margin: 20px;
+//   padding: 1.2em 2.8em;
+//   text-decoration: none;
+//   text-align: center;
+//   text-transform: uppercase;
+//   font-family: "Montserrat", sans-serif;
+//   font-weight: 700;
+// }
 
 // BUTTON 4
-.fourth {
-  // background: $yellow;
-  border-color: yellow;
-  color: #fff;
-  background: {
-    image: linear-gradient(45deg, yellow 50%, transparent 50%);
-    position: 100%;
-    size: 400%;
-  }
-  transition: background 300ms ease-in-out;
+// .fourth {
+//   // background: $yellow;
+//   border-color: yellow;
+//   color: #fff;
+//   background: {
+//     image: linear-gradient(45deg, yellow 50%, transparent 50%);
+//     position: 100%;
+//     size: 400%;
+//   }
+//   transition: background 300ms ease-in-out;
 
-  &:hover {
-    background-position: 0;
-  }
-}
+//   &:hover {
+//     background-position: 0;
+//   }
+// }
 
 @keyframes load {
   0% {
