@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-interface BlocksType {
-  number: number;
-  skip: boolean;
-}
+// interface BlocksType {
+//   number: number;
+//   skip: boolean;
+// }
 
 @Component({
   selector: 'app-home',
@@ -18,8 +18,8 @@ export class HomeComponent {
   DEFAULT_LONG_BREAK: number = 20;
   // -----
 
-  block: number = 1;
-  blocks: BlocksType[] = [];
+  counter: number = 1;
+  // blocks: BlocksType[] = [];
   minutes: any = 25;
   seconds: any = '00';
 
@@ -42,12 +42,18 @@ export class HomeComponent {
     }
   }
 
+  stopTimer(): void {
+    clearInterval(this.interval);
+    this.timerStarted = false;
+  }
+
   resetTimer(): void {
     this.stopTimer();
     this.minutes = this.DEFAULT_TIMER;
     this.seconds = '00';
-    this.block = 1;
-    this.blocks = [];
+    this.counter = 1;
+    this.timeToBreak = false;
+    // this.blocks = [];
   }
 
   startTimer(): void {
@@ -71,8 +77,10 @@ export class HomeComponent {
 
       if (this.minutes == 0 && this.seconds == 0) {
         this.stopTimer();
+        // this.resetTimer();
         this.playRinging();
-        this.manageBlocks(false);
+        this.nextTimer();
+        // this.manageBlocks(false);
       }
 
       this.updateTitle();
@@ -83,40 +91,39 @@ export class HomeComponent {
     this.timerStarted = true;
   }
 
-  stopTimer(): void {
-    clearInterval(this.interval);
-    this.timerStarted = false;
-  }
-
-  manageBlocks(skip: boolean): void {
-    // this.block++;
-    if (skip) {
-      this.blocks.push({ number: this.block, skip: true });
-    } else {
-      this.blocks.push({ number: this.block, skip: false });
-    }
-  }
+  // manageBlocks(skip: boolean): void {
+  //   // this.block++;
+  //   if (skip) {
+  //     this.blocks.push({ number: this.block, skip: true });
+  //   } else {
+  //     this.blocks.push({ number: this.block, skip: false });
+  //   }
+  // }
 
   skipTimer(): void {
     // console.log(this.block % 4);
-    if (this.timeToBreak === false) {
-      this.manageBlocks(true);
-    }
+    // if (this.timeToBreak === false) {
+    //   this.manageBlocks(true);
+    // }
     this.stopTimer();
+    this.nextTimer();
+  }
+
+  nextTimer(): void {
     this.timeToBreak = !this.timeToBreak;
 
     if (this.timeToBreak === true) {
       this.minutes = this.DEFAULT_BREAK;
     }
 
-    if (this.timeToBreak === true && this.block % 4 === 0) {
+    if (this.timeToBreak === true && this.counter % 4 === 0) {
       // console.log('long przerwa');
       // this.block++;
       this.minutes = this.DEFAULT_LONG_BREAK;
     }
 
     if (this.timeToBreak === false) {
-      this.block++;
+      this.counter++;
       this.minutes = this.DEFAULT_TIMER;
     }
     this.seconds = '00';
@@ -124,7 +131,9 @@ export class HomeComponent {
   }
 
   updateTitle(): void {
-    this.titleService.setTitle(`${this.minutes}:${this.seconds}`);
+    this.titleService.setTitle(
+      `${this.minutes}:${this.seconds} - Pomodoro Timer 🍅`
+    );
   }
 
   playRinging(): void {
