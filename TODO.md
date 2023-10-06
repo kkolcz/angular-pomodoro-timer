@@ -5,3 +5,4 @@
 - [x] Finish the footer
 - [x] Change logic
 - [ ] Code cleanup
+- [x] Fix router after refresh '/home'
