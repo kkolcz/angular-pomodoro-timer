@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-pomidoro": {
+    "angular-pomodoro": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-pomidoro",
+            "outputPath": "dist/angular-pomodoro",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-pomidoro:build:production"
+              "browserTarget": "angular-pomodoro:build:production"
             },
             "development": {
-              "browserTarget": "angular-pomidoro:build:development"
+              "browserTarget": "angular-pomodoro:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-pomidoro:build"
+            "browserTarget": "angular-pomodoro:build"
           }
         },
         "test": {
