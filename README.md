@@ -1,6 +1,6 @@
-<p align="center"><img src="https://github.com/kkolcz/angular-pomodoro-timer/assets/76699027/6d3f9a97-fccd-4c69-a4e1-ed5b26182f1b" alt="Application preview"></p>
-
 # Angular Pomodoro Timer
+
+<p align="center"><img src="https://github.com/kkolcz/angular-pomodoro-timer/assets/76699027/6d3f9a97-fccd-4c69-a4e1-ed5b26182f1b" alt="Application preview"></p>
 
 ## What is Pomodoro Technique?
 
