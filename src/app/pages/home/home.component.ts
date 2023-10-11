@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-// interface BlocksType {
-//   number: number;
-//   skip: boolean;
-// }
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,36 +14,27 @@ export class HomeComponent {
   // -----
 
   counter: number = 1;
-  // blocks: BlocksType[] = [];
-  // minutes: any = 25;
-  // seconds: any = '00';
 
   timerStarted: boolean = false;
   timeToBreak: boolean = false;
 
   interval: any;
 
-  //NEW
   timer: number = this.DEFAULT_TIMER;
 
   show_min: string = '';
   show_sec: string = '';
 
   constructor(private titleService: Title) {
-    // titleService.setTitle('Pomidoro');
     this.updateTimer();
   }
 
   increaseTimer(): void {
-    // this.minutes++;
     this.timer += 60;
     this.updateTimer();
   }
 
   decreaseTimer(): void {
-    // if (this.minutes > 0) {
-    //   this.minutes--;
-    // }
     if (this.timer > 0) {
       this.timer -= 60;
       this.updateTimer();
@@ -62,13 +48,10 @@ export class HomeComponent {
 
   resetTimer(): void {
     this.stopTimer();
-    // this.minutes = this.DEFAULT_TIMER;
-    // this.seconds = '00';
     this.timer = this.DEFAULT_TIMER;
     this.counter = 1;
     this.timeToBreak = false;
     this.updateTimer();
-    // this.blocks = [];
   }
 
   updateTimer(): void {
@@ -94,8 +77,6 @@ export class HomeComponent {
 
   startTimer(): void {
     this.timerStarted = true;
-
-    // this.interval = setInterval(() => counter(), 1000);
     this.interval = setInterval(() => counter2(), 1000);
 
     const counter2 = (): void => {
@@ -111,51 +92,9 @@ export class HomeComponent {
         this.nextTimer();
       }
     };
-
-    // const counter = (): void => {
-    //   if (this.seconds == 0) {
-    //     this.minutes--;
-    //     if (this.minutes <= 9) {
-    //       this.minutes = '0' + this.minutes;
-    //     }
-    //     this.seconds = 60;
-    //   }
-    //   this.seconds--;
-    //   if (this.seconds <= 9 && this.seconds > 0) {
-    //     this.seconds = '0' + this.seconds;
-    //     console.log(this.seconds);
-    //   }
-
-    //   if (this.minutes == 0 && this.seconds == 0) {
-    //     this.stopTimer();
-    //     // this.resetTimer();
-    //     this.playRinging();
-    //     this.nextTimer();
-    //     // this.manageBlocks(false);
-    //   }
-
-    //   this.updateTitle();
-    // };
   }
 
-  // startBreak(): void {
-  //   this.timerStarted = true;
-  // }
-
-  // manageBlocks(skip: boolean): void {
-  //   // this.block++;
-  //   if (skip) {
-  //     this.blocks.push({ number: this.block, skip: true });
-  //   } else {
-  //     this.blocks.push({ number: this.block, skip: false });
-  //   }
-  // }
-
   skipTimer(): void {
-    // console.log(this.block % 4);
-    // if (this.timeToBreak === false) {
-    //   this.manageBlocks(true);
-    // }
     this.stopTimer();
     this.nextTimer();
   }
@@ -168,8 +107,6 @@ export class HomeComponent {
     }
 
     if (this.timeToBreak === true && this.counter % 4 === 0) {
-      // console.log('long przerwa');
-      // this.block++;
       this.timer = this.DEFAULT_LONG_BREAK;
     }
 
@@ -179,8 +116,6 @@ export class HomeComponent {
     }
 
     this.updateTimer();
-    // this.seconds = '00';
-    // this.updateTitle();
   }
 
   updateTitle(minutes: string, seconds: string): void {
@@ -189,7 +124,7 @@ export class HomeComponent {
 
   playRinging(): void {
     let audio = new Audio();
-    audio.src = '../../assets/ringing2.mp3';
+    audio.src = '../../assets/ringtone.mp3';
     audio.load();
     audio.play();
   }

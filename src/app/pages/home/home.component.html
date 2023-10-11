@@ -1,5 +1,3 @@
-<!-- <div class="card" [ngStyle]="{'background': timerStarted === true ? 'rgb(255, 99, 71)' : 'rgb(155, 99, 71)'}"> -->
-<!-- <div class="app-container"> -->
 <div class="card" [ngClass]="timerStarted === true ? 'running' : 'break'">
     <span class="mode">{{timeToBreak ? 'Time to break' : 'Time to focus'}} #{{counter}}</span>
     <div class="timer">
@@ -17,8 +15,3 @@
         <button (click)="resetTimer()" class="btn">Reset</button>
     </div>
 </div>
-<!-- *ngIf="blocks.length" -->
-<!-- <ul class="blocks"> -->
-<!-- <li *ngFor="let item of blocks">Block: {{item.number}} Skip: {{item.skip}}</li> -->
-<!-- </ul> -->
-<!-- </div> -->
