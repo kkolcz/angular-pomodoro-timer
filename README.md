@@ -6,6 +6,9 @@
 
 [Pomodoro Technique in Wiki](https://en.wikipedia.org/wiki/Pomodoro_Technique)
 
+## Live demo
+[Demo](https://angular-pomodoro.netlify.app/)
+
 ## How to run?
 
 ### Clone repository and install
