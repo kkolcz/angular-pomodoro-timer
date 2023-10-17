@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomeComponent {
   //DEFAULT
-  DEFAULT_TIMER: number = 20 * 60;
+  DEFAULT_TIMER: number = 25 * 60;
   DEFAULT_BREAK: number = 5 * 60;
-  DEFAULT_LONG_BREAK: number = 25 * 60;
+  DEFAULT_LONG_BREAK: number = 20 * 60;
   // -----
 
   counter: number = 1;
