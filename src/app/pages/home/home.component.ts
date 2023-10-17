@@ -35,7 +35,7 @@ export class HomeComponent {
   }
 
   decreaseTimer(): void {
-    if (this.timer > 0) {
+    if (this.timer > 60) {
       this.timer -= 60;
       this.updateTimer();
     }
