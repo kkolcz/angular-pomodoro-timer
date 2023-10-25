@@ -13,8 +13,7 @@
   align-items: center;
   border-radius: 100%;
   height: 70vh;
-  min-height: 450px;
-  min-width: 450px;
+  min-height: 25rem;
   aspect-ratio: 1/1;
   animation: load 1s ease-in-out;
   margin: 1rem;
@@ -87,4 +86,32 @@
 
 .pomidor {
   height: 250px;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    height: 95vw;
+    min-height: 0;
+  }
+  .mode {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .timer {
+    font-size: 2rem;
+  }
+
+  .timeControlls button {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 1rem 0.5rem 1rem 0.5rem;
+    border-radius: 100%;
+  }
+
+  .timerControlls button {
+    height: 2rem;
+    width: 5rem;
+    margin: 0.5rem;
+  }
 }
