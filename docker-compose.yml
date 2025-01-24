@@ -1,0 +1,7 @@
+services:
+  angular-pomodoro:
+    build: .
+    image: pomodoro-timer-image:latest
+    ports:
+      - "4200:80"
+    container_name: pomodoro-timer
